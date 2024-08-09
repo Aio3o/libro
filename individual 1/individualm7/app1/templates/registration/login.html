@@ -1,0 +1,51 @@
+{% extends 'principal/base.html' %}
+{% load static %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="modal fade bg-transparent" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+      <div class="modal-dialog bg-transparent" style="backdrop-filter: blur(10px);">
+        <div class="modal-content bg-transparent" style="backdrop-filter: blur(10px);">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar Sesion</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="history.back()" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            
+            <h5 class="card-title"></h5>
+            <div class="form-group">
+              <label for="username">Usuario</label>
+              <input type="text" class="form-control" id="username" name="username" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <input type="password" class="form-control" id="password" name="password" required />
+            </div>
+            {% if form.errors %}
+              <div class="alert alert-danger mt-3" role="alert">
+                <h4>Errores</h4>
+                {{ form.errors }}
+              </div>
+            {% endif %}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="history.back()" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#exampleModal').modal('toggle')
+    })
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('#exampleModal').modal('show')
+    })
+  </script>
+{% endblock %}

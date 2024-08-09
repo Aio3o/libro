@@ -1,0 +1,8 @@
+{%extends 'principal/base.html'%}
+{% load static  %}
+{% block content %}
+<div style="text-align:center">
+    <img src="{% static '/img/img.jpg' %} " alt="imgrepresentativa">
+    <p><a class="btn btn-primary" href="{% url 'login'%}">Iniciar Sesion</a></p>
+</div>
+{% endblock %}
